@@ -1,0 +1,3 @@
+SyntaxError in line 7 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/BWA.smk:
+EOL while scanning string literal
+  File "/storage/hpc/group/bilyeu/nad7wf/read_preprocessing/workflows/read_preprocessing.smk", line 15, in <module>

@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	FastqDump
+	1	all
+	2
+Select jobs to execute...
+
+[Wed Jan 19 10:38:32 2022]
+rule FastqDump:
+    output: results/SRR2163296_pass_1.fastq.gz, results/SRR2163296_pass_2.fastq.gz
+    jobid: 1
+    wildcards: sra_id=SRR2163296
+
+Submitted job 1 with external jobid 'Submitted batch job 24082628'.
+[Wed Jan 19 10:42:52 2022]
+Error in rule FastqDump:
+    jobid: 1
+    output: results/SRR2163296_pass_1.fastq.gz, results/SRR2163296_pass_2.fastq.gz
+    conda-env: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/e80f4ee0
+    shell:
+        
+		fastq-dump 			--gzip 			--origfmt 			--split-files 			--outdir results 			--minSpotId 10000 			--maxSpotId 110000 			SRR2163296
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 24082628
+
+Error executing rule FastqDump on cluster (jobid: 1, external: Submitted batch job 24082628, jobscript: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/tmp.2s_h8y6f/snakejob.FastqDump.1.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-01-19T103832.467201.snakemake.log

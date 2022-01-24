@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Creating conda environment envs/trimmomatic.yml...
+Downloading and installing remote packages.
+Environment for envs/trimmomatic.yml created (location: .snakemake/conda/5a0442e9)
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	Trimmomatic
+	1	all
+	2
+Select jobs to execute...
+
+[Wed Jan 19 16:38:17 2022]
+rule Trimmomatic:
+    input: results/SRR2163296_1.fastq.gz, results/SRR2163296_2.fastq.gz
+    output: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_unpaired.fastq.gz
+    jobid: 4
+    wildcards: sra_id=SRR2163296
+
+Activating conda environment: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/5a0442e9
+[Wed Jan 19 16:38:18 2022]
+Error in rule Trimmomatic:
+    jobid: 4
+    output: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_unpaired.fastq.gz
+    conda-env: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/5a0442e9
+    shell:
+        
+		java 			-jar jarfile 			PE 			results/SRR2163296_1.fastq.gz results/SRR2163296_2.fastq.gz 			results/Trimmomatic_SRR2163296_1_paired.fastq.gz results/Trimmomatic_SRR2163296_1_unpaired.fastq.gz results/Trimmomatic_SRR2163296_2_paired.fastq.gz results/Trimmomatic_SRR2163296_2_unpaired.fastq.gz 			ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2:True 			LEADING:3 			TRAILING:3 			MINLEN:36
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-01-19T163453.134098.snakemake.log

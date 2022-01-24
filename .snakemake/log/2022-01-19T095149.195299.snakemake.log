@@ -1,0 +1,3 @@
+Building DAG of jobs...
+IOFileException in line 1 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/FastqDump.smk:
+bad character in group name '1' at position 33 in wildcard statement

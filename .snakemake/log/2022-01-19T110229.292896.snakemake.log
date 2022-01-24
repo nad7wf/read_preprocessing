@@ -1,0 +1,47 @@
+Building DAG of jobs...
+Creating conda environment envs/fastqc.yml...
+Downloading and installing remote packages.
+Environment for envs/fastqc.yml created (location: .snakemake/conda/2a267fc5)
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	2	FastQC
+	1	all
+	3
+Select jobs to execute...
+
+[Wed Jan 19 11:05:20 2022]
+rule FastQC:
+    input: results/SRR2163296_1.fastq.gz
+    output: results/fastqc/SRR2163296_1_fastqc.html
+    jobid: 3
+    wildcards: sra_id=SRR2163296, split_id=1
+
+Submitted job 3 with external jobid 'Submitted batch job 24082665'.
+
+[Wed Jan 19 11:05:21 2022]
+rule FastQC:
+    input: results/SRR2163296_2.fastq.gz
+    output: results/fastqc/SRR2163296_2_fastqc.html
+    jobid: 4
+    wildcards: sra_id=SRR2163296, split_id=2
+
+Submitted job 4 with external jobid 'Submitted batch job 24082666'.
+[Wed Jan 19 11:06:20 2022]
+Finished job 3.
+1 of 3 steps (33%) done
+[Wed Jan 19 11:06:20 2022]
+Finished job 4.
+2 of 3 steps (67%) done
+Select jobs to execute...
+
+[Wed Jan 19 11:06:20 2022]
+localrule all:
+    input: results/SRR2163296_1.fastq.gz, results/SRR2163296_2.fastq.gz, results/fastqc/SRR2163296_1_fastqc.html, results/fastqc/SRR2163296_2_fastqc.html
+    jobid: 0
+
+[Wed Jan 19 11:06:20 2022]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-01-19T110229.292896.snakemake.log

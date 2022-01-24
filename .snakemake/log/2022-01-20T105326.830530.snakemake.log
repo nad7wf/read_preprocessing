@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	BWA
+	1	all
+	2
+Select jobs to execute...
+
+[Thu Jan 20 10:53:26 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_unpaired.fastq.gz
+    output: results/BWA_SRR2163296.bam
+    jobid: 5
+    wildcards: sra_id=SRR2163296
+    resources: ref=../resources/Gmax_275_v2.0.fa
+
+WorkflowError in line 1 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/BWA.smk:
+'Wildcards' object has no attribute 'job-name'
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 135, in run_jobs
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 966, in run

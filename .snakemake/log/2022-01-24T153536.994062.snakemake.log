@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	BWA
+	1	all
+	2
+Select jobs to execute...
+
+[Mon Jan 24 15:35:37 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz
+    output: results/BWA_SRR2163296.bam
+    jobid: 5
+    wildcards: sra_id=SRR2163296
+    resources: ref=resources/Gmax_275_v2.0.fa
+
+Activating conda environment: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/bea3a2aa
+[Mon Jan 24 15:35:38 2022]
+Error in rule BWA:
+    jobid: 5
+    output: results/BWA_SRR2163296.bam
+    conda-env: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/bea3a2aa
+    shell:
+        
+		bwa mem 			resources/Gmax_275_v2.0.fa 			results/Trimmomatic_SRR2163296_1_paired.fastq.gz results/Trimmomatic_SRR2163296_2_paired.fastq.gz | 			#samtools view 			#-Shu - | 			#samtools sort - 			> results/BWA_SRR2163296.bam
+
+		#samtools index results/BWA_SRR2163296.bam
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-01-24T153536.994062.snakemake.log

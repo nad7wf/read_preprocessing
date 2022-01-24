@@ -1,0 +1,4 @@
+RuleException in line 8 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/BWA.smk:
+Conda environments are only allowed with shell, script, notebook, or wrapper directives (not with run).
+  File "/storage/hpc/group/bilyeu/nad7wf/read_preprocessing/workflows/read_preprocessing.smk", line 15, in <module>
+  File "/storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/BWA.smk", line 8, in <module>

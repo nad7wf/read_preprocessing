@@ -2,7 +2,7 @@
 
 #SBATCH --partition=Lewis,hpc5,General
 #SBATCH --mem=1G
-#SBATCH --time=0-12:00
+#SBATCH --time=0-01:00
 #SBATCH --mail-user=nad7wf@mail.missouri.edu
 #SBATCH --mail-type=END,FAIL
 #SBATCH --job-name="Master"
@@ -25,5 +25,5 @@ snakemake \
 	--rerun-incomplete \
 	--cluster-config config/cluster_config.yml \
 	--configfile config/snakemake_config.yml \
-	--snakefile workflow/allele_atlas.smk \
+	--snakefile workflows/read_preprocessing.smk \
 	--cluster="sbatch --ntasks={cluster.cpus} --mem={cluster.mem} --time={cluster.time} --partition={cluster.partition} --job-name={cluster.job-name} --output={cluster.output}"

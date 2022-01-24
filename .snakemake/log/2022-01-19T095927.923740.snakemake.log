@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 4 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/workflows/read_preprocessing.smk:
+Missing input files for rule all:
+results/['SRR2163296']_pass_0.fastq.gz

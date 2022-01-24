@@ -1,0 +1,41 @@
+Building DAG of jobs...
+Creating conda environment envs/bwa.yml...
+Downloading and installing remote packages.
+Environment for envs/bwa.yml created (location: .snakemake/conda/29535751)
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	BWA
+	1	all
+	2
+Select jobs to execute...
+
+[Thu Jan 20 10:18:36 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_unpaired.fastq.gz
+    output: results/BWA_SRR2163296.bam
+    jobid: 5
+    wildcards: sra_id=SRR2163296
+    resources: ref=../resources/Gmax.fa
+
+Activating conda environment: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/29535751
+[Thu Jan 20 10:18:37 2022]
+Error in rule BWA:
+    jobid: 5
+    output: results/BWA_SRR2163296.bam
+    conda-env: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/29535751
+    shell:
+        
+		bwa mem 			../resources/Gmax.fa 			results/Trimmomatic_SRR2163296_1_paired.fastq.gz results/Trimmomatic_SRR2163296_1_unpaired.fastq.gz results/Trimmomatic_SRR2163296_2_paired.fastq.gz results/Trimmomatic_SRR2163296_2_unpaired.fastq.gz | 			samtools view 			-S -b - | 			samtools sort - 			> results/BWA_SRR2163296.bam
+
+		samtools index results/BWA_SRR2163296.bam
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job BWA since they might be corrupted:
+results/BWA_SRR2163296.bam
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-01-20T101833.586930.snakemake.log

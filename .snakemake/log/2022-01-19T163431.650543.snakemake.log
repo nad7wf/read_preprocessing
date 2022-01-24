@@ -1,0 +1,7 @@
+Building DAG of jobs...
+CreateCondaEnvironmentException:
+The 'conda' command is not available in the shell /usr/bin/bash that will be used by Snakemake. You have to ensure that it is in your PATH, e.g., first activating the conda base environment with `conda activate base`.
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/deployment/conda.py", line 247, in create
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/deployment/conda.py", line 381, in __new__
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/deployment/conda.py", line 394, in __init__
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/deployment/conda.py", line 439, in _check

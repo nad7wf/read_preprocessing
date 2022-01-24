@@ -1,0 +1,12 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules FastqDump and Trimmomatic are ambiguous for the file results/Trimmomatic_SRR2163296_1_paired.fastq.gz.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	FastqDump: split_id=paired,sra_id=Trimmomatic_SRR2163296_1
+	Trimmomatic: paired=paired,split_id=1,sra_id=SRR2163296
+Expected input files:
+	FastqDump: 
+	Trimmomatic: results/SRR2163296_1.fastq.gzExpected output files:
+	FastqDump: results/Trimmomatic_SRR2163296_1_paired.fastq.gz
+	Trimmomatic: results/Trimmomatic_SRR2163296_1_paired.fastq.gz
