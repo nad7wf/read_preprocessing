@@ -1,0 +1,66 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	BWA
+	1	FastqDump
+	1	Trimmomatic
+	1	all
+	4
+Select jobs to execute...
+
+[Sun May  8 20:10:03 2022]
+rule FastqDump:
+    output: results/SRR2163308_1.fastq.gz, results/SRR2163308_2.fastq.gz
+    jobid: 33
+    wildcards: sra_id=SRR2163308
+
+Submitted job 33 with external jobid 'Submitted batch job 24569325'.
+[Sun May  8 22:12:18 2022]
+Finished job 33.
+1 of 4 steps (25%) done
+Select jobs to execute...
+
+[Sun May  8 22:12:18 2022]
+rule Trimmomatic:
+    input: results/SRR2163308_1.fastq.gz, results/SRR2163308_2.fastq.gz
+    output: results/Trimmomatic_SRR2163308_1_paired.fastq.gz, results/Trimmomatic_SRR2163308_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163308_2_paired.fastq.gz, results/Trimmomatic_SRR2163308_2_unpaired.fastq.gz
+    jobid: 32
+    wildcards: sra_id=SRR2163308
+
+Submitted job 32 with external jobid 'Submitted batch job 24569527'.
+Removing temporary output file results/SRR2163308_2.fastq.gz.
+Removing temporary output file results/SRR2163308_1.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR2163308_1_unpaired.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR2163308_2_unpaired.fastq.gz.
+[Sun May  8 23:15:52 2022]
+Finished job 32.
+2 of 4 steps (50%) done
+Select jobs to execute...
+
+[Sun May  8 23:15:52 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163308_1_paired.fastq.gz, results/Trimmomatic_SRR2163308_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR2163308.bam
+    jobid: 31
+    wildcards: sra_id=SRR2163308
+    resources: threads=12
+
+Submitted job 31 with external jobid 'Submitted batch job 24569532'.
+Removing temporary output file results/Trimmomatic_SRR2163308_1_paired.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR2163308_2_paired.fastq.gz.
+[Mon May  9 01:29:59 2022]
+Finished job 31.
+3 of 4 steps (75%) done
+Select jobs to execute...
+
+[Mon May  9 01:29:59 2022]
+localrule all:
+    input: results/BWA_SRR2163296.bam, results/BWA_SRR2163312.bam, results/BWA_SRR2163311.bam, results/BWA_SRR5479980.bam, results/BWA_SRR5480119.bam, results/BWA_SRR2163307.bam, results/BWA_SRR1533233.bam, results/BWA_SRR2163297.bam, results/BWA_SRR1533253.bam, results/BWA_SRR2163295.bam, results/BWA_SRR2163308.bam
+    jobid: 0
+
+[Mon May  9 01:29:59 2022]
+Finished job 0.
+4 of 4 steps (100%) done
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-05-08T201003.054090.snakemake.log

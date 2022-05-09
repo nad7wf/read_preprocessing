@@ -1,0 +1,4 @@
+SyntaxError:
+Not all output, log and benchmark files of rule SamtoolsSort contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file.
+  File "/storage/hpc/group/bilyeu/nad7wf/read_preprocessing/workflows/read_preprocessing.smk", line 17, in <module>
+  File "/storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/SamtoolsSort.smk", line 13, in <module>

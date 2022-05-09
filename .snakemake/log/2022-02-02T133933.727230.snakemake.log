@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	SamtoolsSort
+	1	all
+	2
+Select jobs to execute...
+
+[Wed Feb  2 13:39:33 2022]
+rule SamtoolsSort:
+    input: results/BWA_SRR2163296.bam, resources/Gmax_275_v2.0.fa
+    output: results/SamtoolsSort_SRR2163296.bam, results/samtools/BWA_SRR2163296
+    jobid: 6
+    wildcards: sra_id=SRR2163296
+    resources: threads=10
+
+Submitted job 6 with external jobid 'Submitted batch job 24114033'.
+[Wed Feb  2 15:45:31 2022]
+Error in rule SamtoolsSort:
+    jobid: 6
+    output: results/SamtoolsSort_SRR2163296.bam, results/samtools/BWA_SRR2163296
+    conda-env: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/bea3a2aa
+    shell:
+        
+		        samtools fixmate -u -m results/BWA_SRR2163296.bam - |                         samtools sort -u -@10 -T results/samtools/BWA_SRR2163296 - |                         samtools markdup -@10 --reference resources/Gmax_275_v2.0.fa -O bam,level=9 - results/SamtoolsSort_SRR2163296.bam
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 24114033
+
+Error executing rule SamtoolsSort on cluster (jobid: 6, external: Submitted batch job 24114033, jobscript: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/tmp.3tk9ht4f/snakejob.SamtoolsSort.6.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-02-02T133933.727230.snakemake.log

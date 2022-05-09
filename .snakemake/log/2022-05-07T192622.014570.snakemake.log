@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	BWA
+	1	Trimmomatic
+	1	all
+	3
+Select jobs to execute...
+
+[Sat May  7 19:26:22 2022]
+rule Trimmomatic:
+    input: results/SRR1533253_1.fastq.gz, results/SRR1533253_2.fastq.gz
+    output: results/Trimmomatic_SRR1533253_1_paired.fastq.gz, results/Trimmomatic_SRR1533253_1_unpaired.fastq.gz, results/Trimmomatic_SRR1533253_2_paired.fastq.gz, results/Trimmomatic_SRR1533253_2_unpaired.fastq.gz
+    jobid: 26
+    wildcards: sra_id=SRR1533253
+
+Submitted job 26 with external jobid 'Submitted batch job 24568097'.
+[Sat May  7 21:18:08 2022]
+Error in rule Trimmomatic:
+    jobid: 26
+    output: results/Trimmomatic_SRR1533253_1_paired.fastq.gz, results/Trimmomatic_SRR1533253_1_unpaired.fastq.gz, results/Trimmomatic_SRR1533253_2_paired.fastq.gz, results/Trimmomatic_SRR1533253_2_unpaired.fastq.gz
+    conda-env: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/5a0442e9
+    shell:
+        
+		java 			-jar /scratch/nad7wf/miniconda/pkgs/trimmomatic-0.39-hdfd78af_2/share/trimmomatic-0.39-2/trimmomatic.jar 			PE 			results/SRR1533253_1.fastq.gz results/SRR1533253_2.fastq.gz 			results/Trimmomatic_SRR1533253_1_paired.fastq.gz results/Trimmomatic_SRR1533253_1_unpaired.fastq.gz results/Trimmomatic_SRR1533253_2_paired.fastq.gz results/Trimmomatic_SRR1533253_2_unpaired.fastq.gz 			ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2:True 			LEADING:3 			TRAILING:3 			MINLEN:36
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 24568097
+
+Error executing rule Trimmomatic on cluster (jobid: 26, external: Submitted batch job 24568097, jobscript: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/tmp.9tn3kqqc/snakejob.Trimmomatic.26.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-05-07T192622.014570.snakemake.log

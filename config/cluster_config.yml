@@ -4,8 +4,8 @@ __default__:
   mem: 1G
   cpus: 1
 FastqDump:
-  time: 0-12:00
-  mem: 60G
+  time: 0-08:00
+  mem: 1G
   job-name: FastqDump
   output: reports/FastqDump-%j.slurm.out
 FastQC:
@@ -14,12 +14,13 @@ FastQC:
   job-name: FastQC
   output: reports/FastQC-%j.slurm.out
 Trimmomatic:
-  time: 0-04:00
-  mem: 10G
+  time: 0-08:00
+  mem: 1G
   job-name: Trimmomatic
   output: reports/Trimmomatic-%j.slurm.out
 BWA:
   time: 0-12:00
   mem: 100G
+  cpus: 12
   job-name: BWA
   output: reports/BWA-%j.slurm.out

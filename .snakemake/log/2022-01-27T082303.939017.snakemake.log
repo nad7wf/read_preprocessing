@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	BWA
+	1	all
+	2
+Select jobs to execute...
+
+[Thu Jan 27 08:23:04 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz
+    output: results/BWA_SRR2163296.bam, results/samtools/BWA_SRR2163296
+    jobid: 5
+    wildcards: sra_id=SRR2163296
+    resources: ref=resources/Gmax_275_v2.0.fa
+
+Submitted job 5 with external jobid 'Submitted batch job 24101929'.
+[Thu Jan 27 09:25:47 2022]
+Error in rule BWA:
+    jobid: 5
+    output: results/BWA_SRR2163296.bam, results/samtools/BWA_SRR2163296
+    conda-env: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/bea3a2aa
+    shell:
+        
+		bwa mem 			-t 24 			resources/Gmax_275_v2.0.fa 			results/Trimmomatic_SRR2163296_1_paired.fastq.gz results/Trimmomatic_SRR2163296_2_paired.fastq.gz | 			samtools fixmate -u -m - - | 			samtools sort -T results/samtools/BWA_SRR2163296 - | \ 
+			samtools markdup - | 			samtools view > results/BWA_SRR2163296.bam
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 24101929
+
+Error executing rule BWA on cluster (jobid: 5, external: Submitted batch job 24101929, jobscript: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/tmp.wqwuvow4/snakejob.BWA.5.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-01-27T082303.939017.snakemake.log

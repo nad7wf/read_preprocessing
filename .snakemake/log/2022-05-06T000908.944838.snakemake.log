@@ -1,0 +1,19 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	BWA
+	1	FastqDump
+	1	Trimmomatic
+	1	all
+	4
+Select jobs to execute...
+
+[Fri May  6 00:09:09 2022]
+rule FastqDump:
+    output: results/SRR1533253_1.fastq.gz, results/SRR1533253_2.fastq.gz
+    jobid: 27
+    wildcards: sra_id=SRR1533253
+
+Submitted job 27 with external jobid 'Submitted batch job 24557878'.

@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	SamtoolsSort
+	1	all
+	2
+Select jobs to execute...
+
+[Thu Feb  3 08:44:36 2022]
+rule SamtoolsSort:
+    input: results/BWA_SRR2163296.bam, resources/Gmax_275_v2.0.fa
+    output: results/SamtoolsSort_SRR2163296.bam, results/samtools/BWA_SRR2163296
+    jobid: 6
+    wildcards: sra_id=SRR2163296
+    resources: threads=10
+
+Activating conda environment: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/bea3a2aa
+ImproperOutputException in line 1 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/SamtoolsSort.smk:
+Outputs of incorrect type (directories when expecting files or vice versa). Output directories must be flagged with directory(). for rule SamtoolsSort:
+results/samtools/BWA_SRR2163296
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 575, in handle_job_success
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 254, in handle_job_success
+Removing output files of failed job SamtoolsSort since they might be corrupted:
+results/SamtoolsSort_SRR2163296.bam, results/samtools/BWA_SRR2163296
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-02-03T084436.795494.snakemake.log

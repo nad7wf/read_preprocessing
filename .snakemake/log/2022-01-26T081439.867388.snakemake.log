@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	BWA
+	1	Trimmomatic
+	1	all
+	3
+Select jobs to execute...
+
+[Wed Jan 26 08:14:40 2022]
+rule Trimmomatic:
+    input: results/SRR2163296_1.fastq.gz, results/SRR2163296_2.fastq.gz
+    output: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_unpaired.fastq.gz
+    jobid: 4
+    wildcards: sra_id=SRR2163296
+
+Submitted job 4 with external jobid 'Submitted batch job 24100531'.
+[Wed Jan 26 09:43:19 2022]
+Finished job 4.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Wed Jan 26 09:43:19 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz
+    output: results/BWA_SRR2163296.bam, results/samtools/BWA_SRR2163296
+    jobid: 5
+    wildcards: sra_id=SRR2163296
+    resources: ref=resources/Gmax_275_v2.0.fa
+
+Submitted job 5 with external jobid 'Submitted batch job 24100559'.

@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	BWA
+	1	all
+	2
+Select jobs to execute...
+
+[Thu Jan 27 16:52:14 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz
+    output: results/BWA_SRR2163296.bam
+    jobid: 5
+    wildcards: sra_id=SRR2163296
+    resources: ref=resources/Gmax_275_v2.0.fa
+
+Submitted job 5 with external jobid 'Submitted batch job 24103479'.
+[Thu Jan 27 17:50:09 2022]
+Finished job 5.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Thu Jan 27 17:50:09 2022]
+localrule all:
+    input: results/SRR2163296_1.fastq.gz, results/SRR2163296_2.fastq.gz, results/fastqc/SRR2163296_1_fastqc.html, results/fastqc/SRR2163296_2_fastqc.html, results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_unpaired.fastq.gz, results/BWA_SRR2163296.bam
+    jobid: 0
+
+[Thu Jan 27 17:50:09 2022]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-01-27T165211.799652.snakemake.log

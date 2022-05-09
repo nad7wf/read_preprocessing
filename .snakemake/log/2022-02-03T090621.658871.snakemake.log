@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	1	BWA
+	1	all
+	2
+
+[Thu Feb  3 09:06:21 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR2163296.bam
+    jobid: 5
+    wildcards: sra_id=SRR2163296
+    resources: threads=24
+
+RuleException in line 1 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/BWA.smk:
+'Params' object has no attribute 'threads'
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 135, in run_jobs
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 140, in run
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 151, in _run
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 171, in printjob
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 157, in printjob

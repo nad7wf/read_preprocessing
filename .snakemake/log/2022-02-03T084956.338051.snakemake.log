@@ -1,0 +1,34 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	SamtoolsSort
+	1	all
+	2
+Select jobs to execute...
+
+[Thu Feb  3 08:49:56 2022]
+rule SamtoolsSort:
+    input: results/BWA_SRR2163296.bam, resources/Gmax_275_v2.0.fa
+    output: results/SamtoolsSort_SRR2163296.bam
+    jobid: 6
+    wildcards: sra_id=SRR2163296
+    resources: threads=10
+
+Activating conda environment: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/bea3a2aa
+[Thu Feb  3 08:49:58 2022]
+Finished job 6.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Thu Feb  3 08:49:58 2022]
+localrule all:
+    input: results/SRR2163296_1.fastq.gz, results/SRR2163296_2.fastq.gz, results/fastqc/SRR2163296_1_fastqc.html, results/fastqc/SRR2163296_2_fastqc.html, results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_unpaired.fastq.gz, results/BWA_SRR2163296.bam, results/SamtoolsSort_SRR2163296.bam
+    jobid: 0
+
+[Thu Feb  3 08:49:58 2022]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-02-03T084956.338051.snakemake.log

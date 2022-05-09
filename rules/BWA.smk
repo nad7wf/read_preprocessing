@@ -1,20 +1,22 @@
 rule BWA:
 	input:
-		expand("results/Trimmomatic_{{sra_id}}_{split_id}_paired.fastq.gz", split_id = SPLIT_ID)
-	output:
-		out_file = "results/BWA_{sra_id}.bam",
-		out_tmp_dir = temp(directory("results/samtools/BWA_{sra_id}"))
-	resources:
+		fastq = expand("results/Trimmomatic_{{sra_id}}_{split_id}_paired.fastq.gz", split_id = SPLIT_ID),
 		ref = "resources/Gmax_275_v2.0.fa"
+	output:
+		"results/BWA_{sra_id}.bam"
+	resources:
+		threads = config['BWA']['cpus']
 	conda:
 		"../envs/bwa.yml"
 	shell:
 		"""
-		bwa mem \
-			{resources.ref} \
-			{input} | \
+		
+		### Align reads to reference genome.
+		bwa mem -t {resources.threads} {input.ref} {input.fastq} | \
 			samtools fixmate -u -m - - | \
-			samtools sort -T {output.out_tmp_dir} - | \ 
-			samtools markdup - | \
-			samtools view > {output.out_file}
+                        samtools sort -u -@{resources.threads} -T results/samtools/BWA_{wildcards.sra_id} - | \
+                        samtools markdup -@{resources.threads} --reference {input.ref} -O bam,level=9 - {output}
+
+		### Index BAM file.
+		samtools index -b {output}
 		"""

@@ -1,0 +1,19 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	SamtoolsSort
+	1	all
+	2
+Select jobs to execute...
+
+[Thu Feb  3 07:23:40 2022]
+rule SamtoolsSort:
+    input: results/BWA_SRR2163296.bam, resources/Gmax_275_v2.0.fa
+    output: results/SamtoolsSort_SRR2163296.bam, results/samtools/BWA_SRR2163296
+    jobid: 6
+    wildcards: sra_id=SRR2163296
+    resources: threads=10
+
+Submitted job 6 with external jobid 'Submitted batch job 24120876'.

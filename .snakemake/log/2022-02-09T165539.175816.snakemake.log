@@ -1,0 +1,110 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	2	BWA
+	2	FastqDump
+	2	Trimmomatic
+	1	all
+	7
+Select jobs to execute...
+
+[Wed Feb  9 16:55:39 2022]
+rule FastqDump:
+    output: results/SRR1533233_1.fastq.gz, results/SRR1533233_2.fastq.gz
+    jobid: 21
+    wildcards: sra_id=SRR1533233
+
+Submitted job 21 with external jobid 'Submitted batch job 24174014'.
+
+[Wed Feb  9 16:55:39 2022]
+rule FastqDump:
+    output: results/SRR2163307_1.fastq.gz, results/SRR2163307_2.fastq.gz
+    jobid: 18
+    wildcards: sra_id=SRR2163307
+
+Submitted job 18 with external jobid 'Submitted batch job 24174015'.
+[Wed Feb  9 19:00:56 2022]
+Finished job 21.
+1 of 7 steps (14%) done
+Select jobs to execute...
+
+[Wed Feb  9 19:00:56 2022]
+rule Trimmomatic:
+    input: results/SRR1533233_1.fastq.gz, results/SRR1533233_2.fastq.gz
+    output: results/Trimmomatic_SRR1533233_1_paired.fastq.gz, results/Trimmomatic_SRR1533233_1_unpaired.fastq.gz, results/Trimmomatic_SRR1533233_2_paired.fastq.gz, results/Trimmomatic_SRR1533233_2_unpaired.fastq.gz
+    jobid: 20
+    wildcards: sra_id=SRR1533233
+
+Submitted job 20 with external jobid 'Submitted batch job 24174075'.
+[Wed Feb  9 19:59:30 2022]
+Finished job 18.
+2 of 7 steps (29%) done
+Select jobs to execute...
+
+[Wed Feb  9 19:59:30 2022]
+rule Trimmomatic:
+    input: results/SRR2163307_1.fastq.gz, results/SRR2163307_2.fastq.gz
+    output: results/Trimmomatic_SRR2163307_1_paired.fastq.gz, results/Trimmomatic_SRR2163307_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163307_2_paired.fastq.gz, results/Trimmomatic_SRR2163307_2_unpaired.fastq.gz
+    jobid: 17
+    wildcards: sra_id=SRR2163307
+
+Submitted job 17 with external jobid 'Submitted batch job 24174105'.
+Removing temporary output file results/SRR1533233_2.fastq.gz.
+Removing temporary output file results/SRR1533233_1.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR1533233_1_unpaired.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR1533233_2_unpaired.fastq.gz.
+[Wed Feb  9 20:00:10 2022]
+Finished job 20.
+3 of 7 steps (43%) done
+Select jobs to execute...
+
+[Wed Feb  9 20:00:10 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR1533233_1_paired.fastq.gz, results/Trimmomatic_SRR1533233_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR1533233.bam
+    jobid: 19
+    wildcards: sra_id=SRR1533233
+    resources: threads=12
+
+Submitted job 19 with external jobid 'Submitted batch job 24174106'.
+Removing temporary output file results/SRR2163307_2.fastq.gz.
+Removing temporary output file results/SRR2163307_1.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR2163307_1_unpaired.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR2163307_2_unpaired.fastq.gz.
+[Wed Feb  9 21:22:25 2022]
+Finished job 17.
+4 of 7 steps (57%) done
+Select jobs to execute...
+
+[Wed Feb  9 21:22:25 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163307_1_paired.fastq.gz, results/Trimmomatic_SRR2163307_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR2163307.bam
+    jobid: 16
+    wildcards: sra_id=SRR2163307
+    resources: threads=12
+
+Submitted job 16 with external jobid 'Submitted batch job 24175492'.
+Removing temporary output file results/Trimmomatic_SRR1533233_1_paired.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR1533233_2_paired.fastq.gz.
+[Wed Feb  9 22:55:32 2022]
+Finished job 19.
+5 of 7 steps (71%) done
+Removing temporary output file results/Trimmomatic_SRR2163307_2_paired.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR2163307_1_paired.fastq.gz.
+[Thu Feb 10 00:44:28 2022]
+Finished job 16.
+6 of 7 steps (86%) done
+Select jobs to execute...
+
+[Thu Feb 10 00:44:28 2022]
+localrule all:
+    input: results/BWA_SRR2163296.bam, results/BWA_SRR2163312.bam, results/BWA_SRR2163311.bam, results/BWA_SRR5479980.bam, results/BWA_SRR5480119.bam, results/BWA_SRR2163307.bam, results/BWA_SRR1533233.bam
+    jobid: 0
+
+[Thu Feb 10 00:44:28 2022]
+Finished job 0.
+7 of 7 steps (100%) done
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-02-09T165539.175816.snakemake.log

@@ -2,7 +2,7 @@
 
 #SBATCH --partition=Lewis,hpc5,General
 #SBATCH --mem=1G
-#SBATCH --time=0-01:00
+#SBATCH --time=1-00:00
 #SBATCH --mail-user=nad7wf@mail.missouri.edu
 #SBATCH --mail-type=END,FAIL
 #SBATCH --job-name="Master"

@@ -1,0 +1,44 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	BWA
+	2	FastQC
+	1	Trimmomatic
+	1	all
+	5
+Select jobs to execute...
+
+[Tue Jan 25 08:52:29 2022]
+rule FastQC:
+    input: results/SRR2163296_2.fastq.gz
+    output: results/fastqc/SRR2163296_2_fastqc.html
+    jobid: 3
+    wildcards: sra_id=SRR2163296, split_id=2
+
+Submitted job 3 with external jobid 'Submitted batch job 24100095'.
+
+[Tue Jan 25 08:52:33 2022]
+rule FastQC:
+    input: results/SRR2163296_1.fastq.gz
+    output: results/fastqc/SRR2163296_1_fastqc.html
+    jobid: 2
+    wildcards: sra_id=SRR2163296, split_id=1
+
+Submitted job 2 with external jobid 'Submitted batch job 24100096'.
+
+[Tue Jan 25 08:52:34 2022]
+rule Trimmomatic:
+    input: results/SRR2163296_1.fastq.gz, results/SRR2163296_2.fastq.gz
+    output: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_unpaired.fastq.gz
+    jobid: 4
+    wildcards: sra_id=SRR2163296
+
+Submitted job 4 with external jobid 'Submitted batch job 24100097'.
+[Tue Jan 25 09:03:27 2022]
+Finished job 3.
+1 of 5 steps (20%) done
+[Tue Jan 25 09:07:47 2022]
+Finished job 2.
+2 of 5 steps (40%) done

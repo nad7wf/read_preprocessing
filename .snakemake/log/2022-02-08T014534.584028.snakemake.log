@@ -1,0 +1,146 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	3	BWA
+	4	FastQC
+	2	FastqDump
+	2	Trimmomatic
+	1	all
+	12
+Select jobs to execute...
+
+[Tue Feb  8 01:45:39 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR2163296.bam
+    jobid: 13
+    wildcards: sra_id=SRR2163296
+    resources: threads=24
+
+Submitted job 13 with external jobid 'Submitted batch job 24155735'.
+
+[Tue Feb  8 01:45:39 2022]
+rule FastqDump:
+    output: results/SRR2163312_1.fastq.gz, results/SRR2163312_2.fastq.gz
+    jobid: 2
+    wildcards: sra_id=SRR2163312
+
+Submitted job 2 with external jobid 'Submitted batch job 24155736'.
+
+[Tue Feb  8 01:45:39 2022]
+rule FastqDump:
+    output: results/SRR2163311_1.fastq.gz, results/SRR2163311_2.fastq.gz
+    jobid: 3
+    wildcards: sra_id=SRR2163311
+
+Submitted job 3 with external jobid 'Submitted batch job 24155737'.
+[Tue Feb  8 03:05:55 2022]
+Finished job 2.
+1 of 12 steps (8%) done
+Select jobs to execute...
+
+[Tue Feb  8 03:05:55 2022]
+rule FastQC:
+    input: results/SRR2163312_1.fastq.gz
+    output: results/fastqc/SRR2163312_1_fastqc.html
+    jobid: 6
+    wildcards: sra_id=SRR2163312, split_id=1
+
+Submitted job 6 with external jobid 'Submitted batch job 24155745'.
+
+[Tue Feb  8 03:05:57 2022]
+rule FastQC:
+    input: results/SRR2163312_2.fastq.gz
+    output: results/fastqc/SRR2163312_2_fastqc.html
+    jobid: 7
+    wildcards: sra_id=SRR2163312, split_id=2
+
+Submitted job 7 with external jobid 'Submitted batch job 24155746'.
+
+[Tue Feb  8 03:05:57 2022]
+rule Trimmomatic:
+    input: results/SRR2163312_1.fastq.gz, results/SRR2163312_2.fastq.gz
+    output: results/Trimmomatic_SRR2163312_1_paired.fastq.gz, results/Trimmomatic_SRR2163312_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163312_2_paired.fastq.gz, results/Trimmomatic_SRR2163312_2_unpaired.fastq.gz
+    jobid: 11
+    wildcards: sra_id=SRR2163312
+
+Submitted job 11 with external jobid 'Submitted batch job 24155747'.
+[Tue Feb  8 03:18:47 2022]
+Finished job 7.
+2 of 12 steps (17%) done
+[Tue Feb  8 03:22:47 2022]
+Finished job 6.
+3 of 12 steps (25%) done
+[Tue Feb  8 03:40:28 2022]
+Finished job 3.
+4 of 12 steps (33%) done
+Select jobs to execute...
+
+[Tue Feb  8 03:40:28 2022]
+rule FastQC:
+    input: results/SRR2163311_1.fastq.gz
+    output: results/fastqc/SRR2163311_1_fastqc.html
+    jobid: 8
+    wildcards: sra_id=SRR2163311, split_id=1
+
+Submitted job 8 with external jobid 'Submitted batch job 24155756'.
+
+[Tue Feb  8 03:40:29 2022]
+rule FastQC:
+    input: results/SRR2163311_2.fastq.gz
+    output: results/fastqc/SRR2163311_2_fastqc.html
+    jobid: 9
+    wildcards: sra_id=SRR2163311, split_id=2
+
+Submitted job 9 with external jobid 'Submitted batch job 24155757'.
+
+[Tue Feb  8 03:40:30 2022]
+rule Trimmomatic:
+    input: results/SRR2163311_1.fastq.gz, results/SRR2163311_2.fastq.gz
+    output: results/Trimmomatic_SRR2163311_1_paired.fastq.gz, results/Trimmomatic_SRR2163311_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163311_2_paired.fastq.gz, results/Trimmomatic_SRR2163311_2_unpaired.fastq.gz
+    jobid: 12
+    wildcards: sra_id=SRR2163311
+
+Submitted job 12 with external jobid 'Submitted batch job 24155758'.
+[Tue Feb  8 03:53:21 2022]
+Finished job 8.
+5 of 12 steps (42%) done
+[Tue Feb  8 04:05:22 2022]
+Finished job 9.
+6 of 12 steps (50%) done
+[Tue Feb  8 04:21:56 2022]
+Finished job 11.
+7 of 12 steps (58%) done
+Select jobs to execute...
+
+[Tue Feb  8 04:21:56 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163312_1_paired.fastq.gz, results/Trimmomatic_SRR2163312_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR2163312.bam
+    jobid: 14
+    wildcards: sra_id=SRR2163312
+    resources: threads=24
+
+Submitted job 14 with external jobid 'Submitted batch job 24156806'.
+[Tue Feb  8 05:10:44 2022]
+Finished job 12.
+8 of 12 steps (67%) done
+Select jobs to execute...
+
+[Tue Feb  8 05:10:44 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163311_1_paired.fastq.gz, results/Trimmomatic_SRR2163311_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR2163311.bam
+    jobid: 15
+    wildcards: sra_id=SRR2163311
+    resources: threads=24
+
+Submitted job 15 with external jobid 'Submitted batch job 24156814'.
+[Tue Feb  8 06:53:30 2022]
+Finished job 13.
+9 of 12 steps (75%) done
+[Tue Feb  8 07:26:22 2022]
+Finished job 14.
+10 of 12 steps (83%) done

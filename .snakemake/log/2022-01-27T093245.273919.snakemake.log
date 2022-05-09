@@ -1,0 +1,19 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	BWA
+	1	all
+	2
+Select jobs to execute...
+
+[Thu Jan 27 09:32:45 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163296_1_paired.fastq.gz, results/Trimmomatic_SRR2163296_2_paired.fastq.gz
+    output: results/BWA_SRR2163296.bam, results/samtools/BWA_SRR2163296
+    jobid: 5
+    wildcards: sra_id=SRR2163296
+    resources: ref=resources/Gmax_275_v2.0.fa
+
+Submitted job 5 with external jobid 'Submitted batch job 24101940'.

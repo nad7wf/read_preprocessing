@@ -1,0 +1,60 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	3	BWA
+	4	FastQC
+	2	FastqDump
+	2	Trimmomatic
+	1	all
+	12
+Select jobs to execute...
+
+[Tue Feb  8 19:32:31 2022]
+rule FastqDump:
+    output: results/SRR5480119_1.fastq.gz, results/SRR5480119_2.fastq.gz
+    jobid: 5
+    wildcards: sra_id=SRR5480119
+
+Submitted job 5 with external jobid 'Submitted batch job 24161781'.
+
+[Tue Feb  8 19:32:33 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163311_1_paired.fastq.gz, results/Trimmomatic_SRR2163311_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR2163311.bam
+    jobid: 23
+    wildcards: sra_id=SRR2163311
+    resources: threads=12
+
+Submitted job 23 with external jobid 'Submitted batch job 24161782'.
+
+[Tue Feb  8 19:32:33 2022]
+rule FastqDump:
+    output: results/SRR5479980_1.fastq.gz, results/SRR5479980_2.fastq.gz
+    jobid: 4
+    wildcards: sra_id=SRR5479980
+
+Submitted job 4 with external jobid 'Submitted batch job 24161783'.
+[Tue Feb  8 19:54:23 2022]
+Error in rule BWA:
+    jobid: 23
+    output: results/BWA_SRR2163311.bam
+    conda-env: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/bea3a2aa
+    shell:
+        
+		bwa mem -t 12 resources/Gmax_275_v2.0.fa results/Trimmomatic_SRR2163311_1_paired.fastq.gz results/Trimmomatic_SRR2163311_2_paired.fastq.gz | 			samtools fixmate -u -m - - |                         samtools sort -u -@12 -T results/samtools/BWA_SRR2163311 - |                         samtools markdup -@12 --reference resources/Gmax_275_v2.0.fa -O bam,level=9 - results/BWA_SRR2163311.bam
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 24161782
+
+Error executing rule BWA on cluster (jobid: 23, external: Submitted batch job 24161782, jobscript: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/tmp.4jbt46i2/snakejob.BWA.23.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Tue Feb  8 22:35:24 2022]
+Finished job 4.
+1 of 12 steps (8%) done
+[Tue Feb  8 22:53:17 2022]
+Finished job 5.
+2 of 12 steps (17%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-02-08T193230.635446.snakemake.log
