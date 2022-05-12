@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	SliceBam
+	1	all
+	2
+Select jobs to execute...
+
+[Wed May 11 08:20:24 2022]
+rule SliceBam:
+    input: results/BWA_SRR1533233.bam
+    output: results/SliceBam_Xia_Hei_Dou_SRR1533233.bam
+    jobid: 1
+    wildcards: acc_id=Xia_Hei_Dou, sra_id=SRR1533233
+
+Submitted job 1 with external jobid 'Submitted batch job 24574268'.
+[Wed May 11 08:20:44 2022]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Wed May 11 08:20:44 2022]
+localrule all:
+    input: results/SliceBam_Xia_Hei_Dou_SRR1533233.bam
+    jobid: 0
+
+[Wed May 11 08:20:44 2022]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-05-11T082024.071872.snakemake.log

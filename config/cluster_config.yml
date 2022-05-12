@@ -24,3 +24,7 @@ BWA:
   cpus: 12
   job-name: BWA
   output: reports/BWA-%j.slurm.out
+SliceBam:
+  time: 0-00:30
+  job-name: SliceBam
+  output: reports/SliceBam-%j.slurm.out

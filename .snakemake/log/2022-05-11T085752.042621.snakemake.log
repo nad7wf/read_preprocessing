@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 6 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/workflows/read_preprocessing.smk:
+Missing input files for rule all:
+results/SliceBam_PI458515_SNAP02.bam
+results/SliceBam_PI366121_SNAP02.bam

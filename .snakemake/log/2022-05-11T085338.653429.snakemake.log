@@ -1,0 +1,4 @@
+NameError in line 4 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/SliceBam.smk:
+name 'wildcards' is not defined
+  File "/storage/hpc/group/bilyeu/nad7wf/read_preprocessing/workflows/read_preprocessing.smk", line 18, in <module>
+  File "/storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/SliceBam.smk", line 4, in <module>

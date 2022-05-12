@@ -1,0 +1,4 @@
+SyntaxError:
+Only input files can be specified as functions
+  File "/storage/hpc/group/bilyeu/nad7wf/read_preprocessing/workflows/read_preprocessing.smk", line 18, in <module>
+  File "/storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/SliceBam.smk", line 11, in <module>

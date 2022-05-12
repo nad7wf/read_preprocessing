@@ -1,0 +1,24 @@
+Building DAG of jobs...
+Creating conda environment envs/slice.yml...
+Downloading and installing remote packages.
+Environment for envs/slice.yml created (location: .snakemake/conda/47c08e27)
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	SliceBam
+	1	all
+	2
+Select jobs to execute...
+
+[Wed May 11 08:16:46 2022]
+rule SliceBam:
+    input: results/BWA_SRR1533233.bam
+    output: results/SliceBam_Xia_Hei_Dou_SRR1533233.bam
+    jobid: 1
+    wildcards: acc_id=Xia_Hei_Dou, sra_id=SRR1533233
+
+WorkflowError in line 1 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/rules/SliceBam.smk:
+'Wildcards' object has no attribute 'job-name'
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 135, in run_jobs
+  File "/cluster/software/conda-envs/envs/snakemake-5.3.0/lib/python3.6/site-packages/snakemake/executors/__init__.py", line 966, in run

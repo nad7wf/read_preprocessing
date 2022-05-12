@@ -1,0 +1,3 @@
+NameError in line 12 of /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/workflows/read_preprocessing.smk:
+name 'wildcard' is not defined
+  File "/storage/hpc/group/bilyeu/nad7wf/read_preprocessing/workflows/read_preprocessing.smk", line 12, in <module>

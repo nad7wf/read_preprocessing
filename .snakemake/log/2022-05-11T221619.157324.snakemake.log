@@ -1,0 +1,97 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	2	BWA
+	2	SliceBam
+	1	Trimmomatic
+	1	all
+	6
+Select jobs to execute...
+
+[Wed May 11 22:16:19 2022]
+rule Trimmomatic:
+    input: results/SRR2163330_1.fastq.gz, results/SRR2163330_2.fastq.gz
+    output: results/Trimmomatic_SRR2163330_1_paired.fastq.gz, results/Trimmomatic_SRR2163330_1_unpaired.fastq.gz, results/Trimmomatic_SRR2163330_2_paired.fastq.gz, results/Trimmomatic_SRR2163330_2_unpaired.fastq.gz
+    jobid: 2
+    wildcards: sra_id=SRR2163330
+
+Submitted job 2 with external jobid 'Submitted batch job 24580089'.
+
+[Wed May 11 22:16:19 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR1533207_1_paired.fastq.gz, results/Trimmomatic_SRR1533207_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR1533207.bam
+    jobid: 4
+    wildcards: sra_id=SRR1533207
+    resources: threads=12
+
+Submitted job 4 with external jobid 'Submitted batch job 24580090'.
+Removing temporary output file results/Trimmomatic_SRR1533207_1_paired.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR1533207_2_paired.fastq.gz.
+[Wed May 11 23:12:51 2022]
+Finished job 4.
+1 of 6 steps (17%) done
+Select jobs to execute...
+
+[Wed May 11 23:12:52 2022]
+rule SliceBam:
+    input: results/BWA_SRR1533207.bam
+    output: results/SliceBam_PI507662_SNAP02.bam
+    jobid: 8
+    wildcards: acc_id=PI507662, gene=SNAP02
+
+Submitted job 8 with external jobid 'Submitted batch job 24580094'.
+[Wed May 11 23:13:02 2022]
+Finished job 8.
+2 of 6 steps (33%) done
+Removing temporary output file results/SRR2163330_1.fastq.gz.
+Removing temporary output file results/SRR2163330_2.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR2163330_1_unpaired.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR2163330_2_unpaired.fastq.gz.
+[Wed May 11 23:15:22 2022]
+Finished job 2.
+3 of 6 steps (50%) done
+Select jobs to execute...
+
+[Wed May 11 23:15:22 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR2163330_1_paired.fastq.gz, results/Trimmomatic_SRR2163330_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR2163330.bam
+    jobid: 1
+    wildcards: sra_id=SRR2163330
+    resources: threads=12
+
+Submitted job 1 with external jobid 'Submitted batch job 24580096'.
+Removing temporary output file results/Trimmomatic_SRR2163330_1_paired.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR2163330_2_paired.fastq.gz.
+[Thu May 12 01:13:49 2022]
+Finished job 1.
+4 of 6 steps (67%) done
+Select jobs to execute...
+
+[Thu May 12 01:13:49 2022]
+rule SliceBam:
+    input: results/BWA_SRR2163330.bam
+    output: results/SliceBam_PI366121_SNAP02.bam
+    jobid: 7
+    wildcards: acc_id=PI366121, gene=SNAP02
+
+Submitted job 7 with external jobid 'Submitted batch job 24580107'.
+[Thu May 12 01:13:59 2022]
+Finished job 7.
+5 of 6 steps (83%) done
+Select jobs to execute...
+
+[Thu May 12 01:13:59 2022]
+localrule all:
+    input: results/BWA_SRR2163330.bam, results/BWA_SRR1533207.bam, results/SliceBam_PI366121_SNAP02.bam, results/SliceBam_PI507662_SNAP02.bam
+    jobid: 0
+
+Removing temporary output file results/BWA_SRR2163330.bam.
+Removing temporary output file results/BWA_SRR1533207.bam.
+[Thu May 12 01:13:59 2022]
+Finished job 0.
+6 of 6 steps (100%) done
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-05-11T221619.157324.snakemake.log

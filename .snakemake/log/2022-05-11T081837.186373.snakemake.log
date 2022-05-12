@@ -1,0 +1,18 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	1	SliceBam
+	1	all
+	2
+Select jobs to execute...
+
+[Wed May 11 08:18:37 2022]
+rule SliceBam:
+    input: results/BWA_SRR1533233.bam
+    output: results/SliceBam_Xia_Hei_Dou_SRR1533233.bam
+    jobid: 1
+    wildcards: acc_id=Xia_Hei_Dou, sra_id=SRR1533233
+
+Submitted job 1 with external jobid 'Submitted batch job 24574266'.

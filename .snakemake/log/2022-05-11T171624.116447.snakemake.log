@@ -1,0 +1,83 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 100
+Job counts:
+	count	jobs
+	2	BWA
+	2	FastqDump
+	2	SliceBam
+	2	Trimmomatic
+	1	all
+	9
+Select jobs to execute...
+
+[Wed May 11 17:16:24 2022]
+rule FastqDump:
+    output: results/SRR1533207_1.fastq.gz, results/SRR1533207_2.fastq.gz
+    jobid: 6
+    wildcards: sra_id=SRR1533207
+
+Submitted job 6 with external jobid 'Submitted batch job 24577747'.
+
+[Wed May 11 17:16:24 2022]
+rule FastqDump:
+    output: results/SRR2163330_1.fastq.gz, results/SRR2163330_2.fastq.gz
+    jobid: 3
+    wildcards: sra_id=SRR2163330
+
+Submitted job 3 with external jobid 'Submitted batch job 24577748'.
+[Wed May 11 19:28:02 2022]
+Finished job 6.
+1 of 9 steps (11%) done
+Select jobs to execute...
+
+[Wed May 11 19:28:02 2022]
+rule Trimmomatic:
+    input: results/SRR1533207_1.fastq.gz, results/SRR1533207_2.fastq.gz
+    output: results/Trimmomatic_SRR1533207_1_paired.fastq.gz, results/Trimmomatic_SRR1533207_1_unpaired.fastq.gz, results/Trimmomatic_SRR1533207_2_paired.fastq.gz, results/Trimmomatic_SRR1533207_2_unpaired.fastq.gz
+    jobid: 5
+    wildcards: sra_id=SRR1533207
+
+Submitted job 5 with external jobid 'Submitted batch job 24577778'.
+Removing temporary output file results/SRR1533207_2.fastq.gz.
+Removing temporary output file results/SRR1533207_1.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR1533207_1_unpaired.fastq.gz.
+Removing temporary output file results/Trimmomatic_SRR1533207_2_unpaired.fastq.gz.
+[Wed May 11 20:01:55 2022]
+Finished job 5.
+2 of 9 steps (22%) done
+Select jobs to execute...
+
+[Wed May 11 20:01:55 2022]
+rule BWA:
+    input: results/Trimmomatic_SRR1533207_1_paired.fastq.gz, results/Trimmomatic_SRR1533207_2_paired.fastq.gz, resources/Gmax_275_v2.0.fa
+    output: results/BWA_SRR1533207.bam
+    jobid: 4
+    wildcards: sra_id=SRR1533207
+    resources: threads=12
+
+Submitted job 4 with external jobid 'Submitted batch job 24577783'.
+[Wed May 11 20:22:16 2022]
+Error in rule BWA:
+    jobid: 4
+    output: results/BWA_SRR1533207.bam
+    conda-env: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/conda/bea3a2aa
+    shell:
+        
+		
+		### Align reads to reference genome.
+		bwa mem -t 12 resources/Gmax_275_v2.0.fa results/Trimmomatic_SRR1533207_1_paired.fastq.gz results/Trimmomatic_SRR1533207_2_paired.fastq.gz | 			samtools fixmate -u -m - - |                         samtools sort -u -@12 -T results/samtools/BWA_SRR1533207 - |                         samtools markdup -@12 --reference resources/Gmax_275_v2.0.fa -O bam,level=9 - results/BWA_SRR1533207.bam
+
+		### Index BAM file.
+		samtools index -b results/BWA_SRR1533207.bam
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: Submitted batch job 24577783
+
+Error executing rule BWA on cluster (jobid: 4, external: Submitted batch job 24577783, jobscript: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/tmp.mq2x2pwt/snakejob.BWA.4.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Wed May 11 21:44:41 2022]
+Finished job 3.
+3 of 9 steps (33%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /storage/hpc/group/bilyeu/nad7wf/read_preprocessing/.snakemake/log/2022-05-11T171624.116447.snakemake.log
